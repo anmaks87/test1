@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тест</title>
+  <title>&#1058;&#1077;&#1089;&#1090;</title>
   <style>
     body {
       margin: 0;
@@ -15,11 +15,19 @@
     }
 
     .card {
+      width: min(420px, calc(100vw - 32px));
       text-align: center;
       padding: 32px;
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     button {
@@ -30,10 +38,19 @@
       cursor: pointer;
       color: #ffffff;
       background: #0078d4;
+      transition: background-color 0.2s ease;
     }
 
     button:hover {
       background: #005ea6;
+    }
+
+    #telegram-button {
+      background: #229ed9;
+    }
+
+    #telegram-button:hover {
+      background: #1678a9;
     }
 
     #message {
@@ -46,16 +63,27 @@
 </head>
 <body>
   <div class="card">
-    <button id="test-button" type="button">Тест</button>
+    <div class="buttons">
+      <button id="test-button" type="button">&#1058;&#1077;&#1089;&#1090;</button>
+      <button id="telegram-button" type="button">&#1054;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1100;</button>
+    </div>
     <div id="message"></div>
   </div>
 
   <script>
-    const button = document.getElementById("test-button");
+    const testButton = document.getElementById("test-button");
+    const telegramButton = document.getElementById("telegram-button");
     const message = document.getElementById("message");
+    const telegramText = "\u041f\u0440\u0438\u0432\u0435\u0442";
+    const telegramShareUrl =
+      "https://t.me/share/url?url=&text=" + encodeURIComponent(telegramText);
 
-    button.addEventListener("click", () => {
-      message.textContent = "Привет";
+    testButton.addEventListener("click", () => {
+      message.textContent = "\u041f\u0440\u0438\u0432\u0435\u0442";
+    });
+
+    telegramButton.addEventListener("click", () => {
+      window.open(telegramShareUrl, "_blank", "noopener,noreferrer");
     });
   </script>
 </body>
