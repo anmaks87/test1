@@ -1,0 +1,19 @@
+{
+  "botToken": "",
+  "defaultMessage": "Привет",
+  "testMessage": "Привет",
+  "recipients": [
+    {
+      "name": "Даня",
+      "chatId": ""
+    },
+    {
+      "name": "Мама",
+      "chatId": ""
+    },
+    {
+      "name": "Тато",
+      "chatId": ""
+    }
+  ]
+}
