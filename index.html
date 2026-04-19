@@ -53,6 +53,14 @@
       background: #1678a9;
     }
 
+    #danya-button {
+      background: #f28b30;
+    }
+
+    #danya-button:hover {
+      background: #cc6d16;
+    }
+
     #message {
       margin-top: 18px;
       font-size: 22px;
@@ -66,6 +74,7 @@
     <div class="buttons">
       <button id="test-button" type="button">&#1058;&#1077;&#1089;&#1090;</button>
       <button id="telegram-button" type="button">&#1054;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1100;</button>
+      <button id="danya-button" type="button">&#1044;&#1072;&#1085;&#1103;</button>
     </div>
     <div id="message"></div>
   </div>
@@ -73,10 +82,15 @@
   <script>
     const testButton = document.getElementById("test-button");
     const telegramButton = document.getElementById("telegram-button");
+    const danyaButton = document.getElementById("danya-button");
     const message = document.getElementById("message");
     const telegramText = "\u041f\u0440\u0438\u0432\u0435\u0442";
+    const danyaText =
+      "\u0421\u043e\u043d\u043e\u0447\u043e\u043a, \u0434\u043e\u0431\u0440\u0438\u0439 \u0440\u0430\u043d\u043e\u043a. \u0429\u043e \u0441\u043f\u0430\u043b\u043e\u0441\u044c \u0442\u0430 \u044f\u043a \u0441\u043d\u0438\u043b\u043e\u0441\u044c?";
     const telegramShareUrl =
       "https://t.me/share/url?url=&text=" + encodeURIComponent(telegramText);
+    const danyaShareUrl =
+      "https://t.me/share/url?url=&text=" + encodeURIComponent(danyaText);
 
     testButton.addEventListener("click", () => {
       message.textContent = "\u041f\u0440\u0438\u0432\u0435\u0442";
@@ -84,6 +98,10 @@
 
     telegramButton.addEventListener("click", () => {
       window.open(telegramShareUrl, "_blank", "noopener,noreferrer");
+    });
+
+    danyaButton.addEventListener("click", () => {
+      window.open(danyaShareUrl, "_blank", "noopener,noreferrer");
     });
   </script>
 </body>
