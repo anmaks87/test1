@@ -55,10 +55,22 @@
 
     #danya-button {
       background: #f28b30;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
     #danya-button:hover {
       background: #cc6d16;
+    }
+
+    .button-photo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      flex-shrink: 0;
     }
 
     #message {
@@ -74,7 +86,14 @@
     <div class="buttons">
       <button id="test-button" type="button">&#1058;&#1077;&#1089;&#1090;</button>
       <button id="telegram-button" type="button">&#1054;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1100;</button>
-      <button id="danya-button" type="button">&#1044;&#1072;&#1085;&#1103;</button>
+      <button id="danya-button" type="button">
+        <img
+          class="button-photo"
+          src="danya-photo.jpg"
+          alt="&#1060;&#1086;&#1090;&#1086; &#1044;&#1072;&#1085;&#1110;"
+        >
+        <span>&#1044;&#1072;&#1085;&#1103;</span>
+      </button>
     </div>
     <div id="message"></div>
   </div>
