@@ -28,6 +28,7 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
     button {
@@ -82,6 +83,39 @@
       flex-shrink: 0;
     }
 
+    .recipients {
+      margin: 0 auto 18px;
+      padding: 14px 16px;
+      background: #f7f9fc;
+      border-radius: 14px;
+      text-align: left;
+    }
+
+    .recipients-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .recipient-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: #1f2937;
+      font-size: 15px;
+    }
+
+    .recipient-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .recipient-item input {
+      width: 18px;
+      height: 18px;
+    }
+
     #message {
       margin-top: 18px;
       font-size: 22px;
@@ -92,6 +126,22 @@
 </head>
 <body>
   <div class="card">
+    <div class="recipients">
+      <p class="recipients-title">Обери отримувачів</p>
+      <label class="recipient-item">
+        <input type="checkbox" name="recipient" value="user1">
+        <span>Користувач 1</span>
+      </label>
+      <label class="recipient-item">
+        <input type="checkbox" name="recipient" value="user2">
+        <span>Користувач 2</span>
+      </label>
+      <label class="recipient-item">
+        <input type="checkbox" name="recipient" value="user3">
+        <span>Користувач 3</span>
+      </label>
+    </div>
+
     <div class="buttons">
       <button id="test-button" type="button">&#1058;&#1077;&#1089;&#1090;</button>
       <button id="telegram-button" type="button">&#1054;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1100;</button>
@@ -112,6 +162,7 @@
     const telegramButton = document.getElementById("telegram-button");
     const danyaButton = document.getElementById("danya-button");
     const message = document.getElementById("message");
+    const recipientInputs = document.querySelectorAll('input[name="recipient"]');
     const workerUrl = "https://telegram-sender.a-n-maksimenko.workers.dev/";
     const telegramText = "\u041f\u0440\u0438\u0432\u0435\u0442";
     const danyaText =
@@ -122,6 +173,16 @@
     });
 
     telegramButton.addEventListener("click", async () => {
+      const recipients = Array.from(recipientInputs)
+        .filter((input) => input.checked)
+        .map((input) => input.value);
+
+      if (recipients.length === 0) {
+        message.textContent =
+          "\u041e\u0431\u0435\u0440\u0438 \u0445\u043e\u0447\u0430 \u0431 \u043e\u0434\u043d\u043e\u0433\u043e \u043e\u0442\u0440\u0438\u043c\u0443\u0432\u0430\u0447\u0430";
+        return;
+      }
+
       telegramButton.disabled = true;
       message.textContent = "\u0412\u0456\u0434\u043f\u0440\u0430\u0432\u043b\u044f\u044e...";
 
@@ -132,7 +193,8 @@
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            text: telegramText
+            text: telegramText,
+            recipients
           })
         });
 
