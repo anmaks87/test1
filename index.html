@@ -57,7 +57,11 @@
       background: #f28b30;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      padding: 16px 24px;
+      font-size: 24px;
+      font-weight: 700;
+      border-radius: 18px;
     }
 
     #danya-button:hover {
@@ -65,11 +69,11 @@
     }
 
     .button-photo {
-      width: 36px;
-      height: 36px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid rgba(255, 255, 255, 0.7);
+      border: 3px solid rgba(255, 255, 255, 0.7);
       flex-shrink: 0;
     }
 
@@ -104,7 +108,7 @@
     const danyaButton = document.getElementById("danya-button");
     const message = document.getElementById("message");
     const danyaText =
-      "\u0421\u043e\u043d\u043e\u0447\u043e\u043a, \u0434\u043e\u0431\u0440\u0438\u0439 \u0440\u0430\u043d\u043e\u043a. \u0429\u043e \u0441\u043f\u0430\u043b\u043e\u0441\u044c \u0442\u0430 \u044f\u043a \u0441\u043d\u0438\u043b\u043e\u0441\u044c?";
+      "\u0421\u0438\u043d\u043e\u0447\u043e\u043a, \u0434\u043e\u0431\u0440\u0438\u0439 \u0440\u0430\u043d\u043e\u043a. \u0429\u043e \u0441\u043f\u0430\u043b\u043e\u0441\u044c \u0442\u0430 \u044f\u043a \u0441\u043d\u0438\u043b\u043e\u0441\u044c?";
 
     testButton.addEventListener("click", () => {
       message.textContent = "\u041f\u0440\u0438\u0432\u0435\u0442";
